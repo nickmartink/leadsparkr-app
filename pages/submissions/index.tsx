@@ -1,4 +1,4 @@
-import Layout from '../../components/Layout'
+import Layout from '../../components/Layout';
 
 const SubmissionsPage = () => (
     <Layout title="Leadsparkr | Submissions">
@@ -12,6 +12,6 @@ const SubmissionsPage = () => (
             </div>
         </div>
     </Layout>
-)
+);
 
-export default SubmissionsPage
+export default SubmissionsPage;

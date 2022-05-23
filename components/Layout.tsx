@@ -1,8 +1,8 @@
-import React, { ReactNode } from 'react'
-import Head from 'next/head'
-import { useState } from 'react'
-import Sidebar from './Sidebar'
-import { MenuIcon } from '@heroicons/react/outline'
+import React, { ReactNode } from 'react';
+import Head from 'next/head';
+import { useState } from 'react';
+import Sidebar from './Sidebar';
+import { MenuIcon } from '@heroicons/react/outline';
 
 type Props = {
   children?: ReactNode
@@ -10,10 +10,10 @@ type Props = {
 }
 
 const Layout = ({ children, title = 'This is the default title' }: Props) => {
-  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const sidebarOpenHandler = (open: boolean) => {
     setSidebarOpen(open);
-  }
+  };
   return (
     <div>
       <Head>
@@ -39,7 +39,7 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => {
       </div >
       <div id="modal-root"></div>
     </div >
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

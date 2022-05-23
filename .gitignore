@@ -39,3 +39,6 @@ data/
 # cypress
 cypress/videos
 cypress/screenshots
+
+# vscode
+.vscode

@@ -1,4 +1,4 @@
-import Layout from '../components/Layout'
+import Layout from '../components/Layout';
 
 const IndexPage = () => (
   <Layout title="Leadsparkr | Dashboard">
@@ -12,6 +12,6 @@ const IndexPage = () => (
       </div>
     </div>
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;

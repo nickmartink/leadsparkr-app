@@ -1,4 +1,4 @@
-import Layout from '../../components/Layout'
+import Layout from '../../components/Layout';
 
 const FormsPage = () => (
     <Layout title="Leadsparkr | Forms">
@@ -12,6 +12,6 @@ const FormsPage = () => (
             </div>
         </div>
     </Layout>
-)
+);
 
-export default FormsPage
+export default FormsPage;

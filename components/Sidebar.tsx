@@ -1,33 +1,32 @@
-import { Dialog, Transition } from '@headlessui/react'
+import { Dialog, Transition } from '@headlessui/react';
 import {
     FolderIcon,
     HomeIcon,
     InboxIcon,
     XIcon,
-} from '@heroicons/react/outline'
-import { useRouter } from 'next/router'
-import React, { Fragment } from 'react'
-import Logo from './Logo'
-import Image from 'next/image'
+} from '@heroicons/react/outline';
+import { useRouter } from 'next/router';
+import React, { Fragment } from 'react';
+import Logo from './Logo';
 
 function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
+    return classes.filter(Boolean).join(' ');
 }
 
 const navigation = [
     { name: 'Dashboard', href: '/', icon: HomeIcon },
     { name: 'Forms', href: '/forms', icon: FolderIcon },
     { name: 'Submissions', href: '/submissions', icon: InboxIcon }
-]
+];
 
-type SidebarProps = { sidebarOpen: boolean, setSidebarOpen: () => void };
+type SidebarProps = { sidebarOpen: boolean, setSidebarOpen: (value: boolean) => void };
 
 const Sidebar = ({ sidebarOpen = false, setSidebarOpen }: SidebarProps) => {
 
     const router = useRouter();
     const isCurrent = (item) => {
         return router.pathname === item.href;
-    }
+    };
 
     return (
         <>
@@ -53,7 +52,7 @@ const Sidebar = ({ sidebarOpen = false, setSidebarOpen }: SidebarProps) => {
                         leaveFrom="translate-x-0"
                         leaveTo="-translate-x-full"
                     >
-                        <div className="relative flex-1 flex flex-col max-w-xs w-full bg-indigo-700">
+                        <div className="relative flex-1 flex flex-col max-w-xs w-full bg-brand-purple">
                             <Transition.Child
                                 as={Fragment}
                                 enter="ease-in-out duration-300"
@@ -76,11 +75,7 @@ const Sidebar = ({ sidebarOpen = false, setSidebarOpen }: SidebarProps) => {
                             </Transition.Child>
                             <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
                                 <div className="flex-shrink-0 flex items-center px-4">
-                                    <Image
-                                        className="h-8 w-auto"
-                                        src="https://tailwindui.com/img/logos/workflow-logo-indigo-300-mark-white-text.svg"
-                                        alt="Workflow"
-                                    />
+                                    <Logo></Logo>
                                 </div>
                                 <nav className="mt-5 px-2 space-y-1">
                                     {navigation.map((item) => (
@@ -104,10 +99,10 @@ const Sidebar = ({ sidebarOpen = false, setSidebarOpen }: SidebarProps) => {
                                 <a href="#" className="flex-shrink-0 group block">
                                     <div className="flex items-center">
                                         <div>
-                                            <Image
+                                            <img
                                                 className="inline-block h-10 w-10 rounded-full"
                                                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                                alt=""
+                                                alt="User avatar"
                                             />
                                         </div>
                                         <div className="ml-3">
@@ -150,10 +145,10 @@ const Sidebar = ({ sidebarOpen = false, setSidebarOpen }: SidebarProps) => {
                         <a href="#" className="flex-shrink-0 w-full group block">
                             <div className="flex items-center">
                                 <div>
-                                    <Image
+                                    <img
                                         className="inline-block h-9 w-9 rounded-full"
                                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                        alt=""
+                                        alt="User avatar"
                                     />
                                 </div>
                                 <div className="ml-3">
@@ -166,7 +161,7 @@ const Sidebar = ({ sidebarOpen = false, setSidebarOpen }: SidebarProps) => {
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default Sidebar
+export default Sidebar;
