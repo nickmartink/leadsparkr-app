@@ -1,0 +1,8 @@
+{
+    "success": true,
+    "data": {
+        "id": 1234,
+        "name": "Form n: #1234",
+        "endpoint": "https://yourdomain.com/form-endpoint"
+    }
+}

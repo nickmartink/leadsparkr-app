@@ -1,0 +1,8 @@
+{
+    "id": "n:[formid]",
+    "name": "Form n: #[formid]",
+    "emailForwardAddress": "[#faker:internet:email]",
+    "botDetection": false,
+    "notificationPreference": "daily",
+    "endpoint": "[#faker:internet:url]"
+}
