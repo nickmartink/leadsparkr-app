@@ -1,0 +1,16 @@
+[
+    "#for i in range(10)",
+    {
+        "id": "n:[i]",
+        "form": {
+            "name": "Form n: #[i]",
+            "emailForwardAddress": "[#faker:internet:email]",
+            "botDetection": false,
+            "notificationPreference": "daily",
+            "endpoint": "[#faker:internet:url]"
+        },
+        "data": "[#faker:datatype:json]",
+        "createdAt": "[#faker:date:recent]"
+    },
+    "#endfor"
+]

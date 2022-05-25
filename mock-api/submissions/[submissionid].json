@@ -1,0 +1,13 @@
+{
+    "id": "n:[i]",
+    "form": {
+        "id": 1234,
+        "name": "Form n: 1234",
+        "emailForwardAddress": "[#faker:internet:email]",
+        "botDetection": false,
+        "notificationPreference": "daily",
+        "endpoint": "[#faker:internet:url]"
+    },
+    "data": "[#faker:datatype:json]",
+    "createdAt": "[#faker:date:recent]"
+}

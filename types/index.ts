@@ -6,6 +6,12 @@ export interface IFormData {
     endpoint?: string
 };
 
+export interface ISubmissionData {
+    form: IFormData,
+    createdAt: string,
+    data: string
+};
+
 export interface IFormResponseData {
     data: {
         id: number,
