@@ -5,12 +5,17 @@ import api from "../../api-store";
 import Button from "../../components/Button";
 import Layout from "../../components/Layout";
 import { IFormData } from "../../types";
+import useSWR from 'swr';
+import { fetcher } from '../../api-store';
+import FormSubmissionsTable from "../../components/Submissions/FormSubmissionsTable";
 
 type FormDataProps = {
     form: IFormData
 }
 
 const ViewFormPage = ({ form }: FormDataProps) => {
+
+    const { data: submissions, error } = useSWR('/submissions?formId=' + form.id, fetcher);
 
     return (
         <Layout title="Leadsparkr | Forms">
@@ -61,8 +66,16 @@ const ViewFormPage = ({ form }: FormDataProps) => {
                         </dl>
                     </div>
                 </div>
+
+                <div>
+                    <h2>Form Submissions</h2>
+                    <div className="pt-8">
+                        {submissions && error}
+                        {submissions && <FormSubmissionsTable data={submissions}></FormSubmissionsTable>}
+                    </div>
+                </div>
             </div>
-        </Layout>
+        </Layout >
     );
 };
 

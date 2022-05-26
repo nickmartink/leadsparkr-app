@@ -9,6 +9,7 @@
             "notificationPreference": "daily",
             "endpoint": "[#faker:internet:url]"
         },
+        "user_ip": "[#faker:internet:ip]",
         "data": "[#faker:datatype:json]",
         "createdAt": "[#faker:date:recent]"
     },

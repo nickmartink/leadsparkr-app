@@ -4,24 +4,31 @@ import Link from "next/link";
 import api from "../../api-store";
 import Button from "../../components/Button";
 import Layout from "../../components/Layout";
+import SubmissionData from "../../components/Submissions/SubmissionData";
 import { ISubmissionData } from "../../types";
-import JSONPretty from 'react-json-pretty';
-import 'react-json-pretty/themes/monikai.css';
 
 type SubmissionDataProps = {
-    submission: ISubmissionData
+    submission: ISubmissionData,
+    formReferer?: string | boolean
 }
 
-const ViewSubmissionPage = ({ submission }: SubmissionDataProps) => {
+const ViewSubmissionPage = ({ submission, formReferer }: SubmissionDataProps) => {
+
+    console.log(formReferer);
 
     let data = JSON.parse(submission.data);
     console.log(data);
     return (
         <Layout title="Leadsparkr | Submissions">
             <div>
-                <Link href="/submissions" passHref>
-                    <Button><ArrowLeftIcon className="mr-3 flex-shrink-0 h-6 w-6 text-indigo-300" aria-hidden="true"></ArrowLeftIcon> Back To Submissions</Button>
-                </Link>
+                {!formReferer &&
+                    <Link href="/submissions" passHref>
+                        <Button><ArrowLeftIcon className="mr-3 flex-shrink-0 h-6 w-6 text-indigo-300" aria-hidden="true"></ArrowLeftIcon> Back To Submissions</Button>
+                    </Link>}
+                {formReferer &&
+                    <Link href={formReferer} passHref>
+                        <Button><ArrowLeftIcon className="mr-3 flex-shrink-0 h-6 w-6 text-indigo-300" aria-hidden="true"></ArrowLeftIcon> Back To Form</Button>
+                    </Link>}
             </div>
             <div>
                 <div className="space-y-8 divide-y divide-gray-200 sm:space-y-5">
@@ -69,7 +76,7 @@ const ViewSubmissionPage = ({ submission }: SubmissionDataProps) => {
                             <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt className="text-sm font-medium text-gray-500">Data</dt>
                                 <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                    <JSONPretty id="json-pretty" data={submission.data}></JSONPretty>
+                                    <SubmissionData data={submission.data}></SubmissionData>
                                 </dd>
                             </div>
 
@@ -81,12 +88,19 @@ const ViewSubmissionPage = ({ submission }: SubmissionDataProps) => {
     );
 };
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({ req, params }) => {
+
+    let formReferer: string | boolean = "";
+
+    if (req.headers.referer) {
+        let referer = req.headers.referer.match(/(\/forms\/\d+)/);
+        formReferer = referer && referer.length > 1 ? referer[1] : false;
+    }
 
     const res = await api(`/submissions/${params.id}`);
     const submission = await res.data;
 
-    return { props: { submission } };
+    return { props: { submission, formReferer } };
 };
 
 

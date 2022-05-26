@@ -1,4 +1,5 @@
 export interface IFormData {
+    id?: number,
     name: string,
     emailForwardAddress: string,
     botDetection: boolean,
@@ -19,4 +20,9 @@ export interface IFormResponseData {
         endpoint: string,
     }
     success: boolean
+}
+
+export interface SubmissionsTableProps {
+    data: Array<ISubmissionData>,
+    isLoading?: boolean
 }
