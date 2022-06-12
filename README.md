@@ -3,8 +3,16 @@ This is an application to help you manage lead generation on your websites. Crea
 
 ## Local development
 
-NPM
 ```
 npm install
+
+docker-compose up -d --build
+
+npx prisma migrate dev
+
+npx prisma db seed
+
 npm run dev
+
 ```
+
