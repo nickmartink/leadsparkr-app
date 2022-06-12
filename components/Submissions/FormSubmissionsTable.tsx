@@ -9,13 +9,13 @@ const FormSubmissionsTable = ({ data, isLoading = false }: SubmissionsTableProps
                     <tr>
                         <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
                             Data
-                                        </th>
+                        </th>
                         <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                             User IP Address
-                                        </th>
+                        </th>
                         <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                             Date
-                                        </th>
+                        </th>
                         <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-6">
                             <span className="sr-only">View</span>
                         </th>
@@ -28,21 +28,21 @@ const FormSubmissionsTable = ({ data, isLoading = false }: SubmissionsTableProps
                                 <td colSpan={5} className="text-center"><p>{isLoading ? 'Loading...' : 'There is nothing to show here...'}</p></td>
                             </tr>
                         ) : data.map((submission) =>
-                            (
-                                <tr key={submission.id}>
-                                    <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                                        <SubmissionData data={submission.data}></SubmissionData>
-                                    </td>
-                                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                        {submission.user_ip}</td>
-                                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{submission.createdAt}</td>
-                                    <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                        <a href={"/submissions/" + submission.id} className="view-submission text-indigo-600 hover:text-indigo-900">
-                                            View<span className="sr-only">, {submission.name}</span>
-                                        </a>
-                                    </td>
-                                </tr>
-                            ))
+                        (
+                            <tr key={submission.id}>
+                                <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                                    <SubmissionData data={submission.data}></SubmissionData>
+                                </td>
+                                <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                    {submission.user_ip}</td>
+                                <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{submission.createdAt}</td>
+                                <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                    <a href={"/submissions/" + submission.id} className="view-submission text-indigo-600 hover:text-indigo-900">
+                                        View submission
+                                    </a>
+                                </td>
+                            </tr>
+                        ))
                     }
                 </tbody>
             </table>

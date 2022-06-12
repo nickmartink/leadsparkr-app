@@ -1,4 +1,3 @@
-import Layout from '../../components/Layout';
 import useSWR from 'swr';
 import { fetcher } from '../../api-store';
 import SubmissionsTable from '../../components/Submissions/SubmissionsTable';
@@ -10,7 +9,7 @@ const SubmissionsPage = () => {
     if (error) return <div>Sorry, there was an error.</div>;
 
     return (
-        <Layout title="Leadsparkr | Submissions">
+        <>
             <div className="flex justify-between">
                 <h1>All Submissions</h1>
             </div>
@@ -21,7 +20,7 @@ const SubmissionsPage = () => {
                     </div>
                 </div >
             </div >
-        </Layout>
+        </>
     );
 };
 

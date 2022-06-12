@@ -2,7 +2,6 @@ import { ArrowLeftIcon } from "@heroicons/react/outline";
 import { useState } from 'react';
 import Link from "next/link";
 import Button from "../../components/Button";
-import Layout from "../../components/Layout";
 import { Field, Form, Formik, FormikErrors } from 'formik';
 import api from "../../api-store";
 import { IFormData, IFormResponseData } from "../../types";
@@ -41,7 +40,7 @@ const NewFormPage = () => {
     };
 
     return (
-        <Layout title="Leadsparkr | Forms">
+        <>
             <div>
                 <Link href="/forms" passHref>
                     <Button><ArrowLeftIcon className="mr-3 flex-shrink-0 h-6 w-6 text-indigo-300" aria-hidden="true"></ArrowLeftIcon> Back To Forms</Button>
@@ -107,7 +106,7 @@ const NewFormPage = () => {
                                     <div className="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
                                         <label htmlFor="form-name" className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                                             Enable bot detection
-                                    </label>
+                                        </label>
                                         <div className="mt-2 flex items-center h-5 sm:col-span-2">
                                             <Field id="bot_detection" name="bot_detection" type="checkbox" className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded "
                                             />
@@ -121,7 +120,7 @@ const NewFormPage = () => {
                                     <h3 className="text-lg leading-6 font-medium text-gray-900">Notifications</h3>
                                     <p className="mt-1 max-w-2xl text-sm text-gray-500">
                                         Customise when you want to receive notifications of form submissions.
-                                </p>
+                                    </p>
                                 </div>
                                 <div className="space-y-6 sm:space-y-5 divide-y divide-gray-200">
                                     <div className="pt-6 sm:pt-5">
@@ -133,7 +132,7 @@ const NewFormPage = () => {
                                                         id="label-notifications"
                                                     >
                                                         Notification Frequency
-                                                </div>
+                                                    </div>
                                                 </div>
                                                 <div className="sm:col-span-2">
                                                     <div className="max-w-lg">
@@ -143,21 +142,21 @@ const NewFormPage = () => {
                                                                 <Field id="frequency-immediately" type="radio" name="notificationPreference" value="immediately" className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" />
                                                                 <label htmlFor="frequency-immediately" className="ml-3 block text-sm font-medium text-gray-700">
                                                                     Everything
-                                                            </label>
+                                                                </label>
                                                             </div>
 
                                                             <div className="flex items-center">
                                                                 <Field id="frequency-daily" type="radio" name="notificationPreference" value="daily" className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" />
                                                                 <label htmlFor="frequency-daily" className="ml-3 block text-sm font-medium text-gray-700">
                                                                     Daily Summary
-                                                            </label>
+                                                                </label>
                                                             </div>
 
                                                             <div className="flex items-center">
                                                                 <Field id="frequency-weekly" type="radio" name="notificationPreference" value="weekly" className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300" />
                                                                 <label htmlFor="frequency-weekly" className="ml-3 block text-sm font-medium text-gray-700">
                                                                     Weekly Summary
-                                                            </label>
+                                                                </label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -176,19 +175,19 @@ const NewFormPage = () => {
                                     className="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                 >
                                     Cancel
-                            </button>
+                                </button>
                                 <button
                                     type="submit"
                                     className="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                 >
                                     Save
-                            </button>
+                                </button>
                             </div>
                         </div>
                     </Form>
                 )}
             </Formik>
-        </Layout>
+        </>
     );
 };
 

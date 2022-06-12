@@ -1,0 +1,6 @@
+{
+    "username": "[#faker:internet:userName]",
+    "first_name": "[#faker:name:firstName]",
+    "last_name": "[#faker:name:lastName]",
+    "avatar": "https://i.pravatar.cc/200"
+}

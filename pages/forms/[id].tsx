@@ -3,7 +3,6 @@ import { GetServerSideProps } from 'next';
 import Link from "next/link";
 import api from "../../api-store";
 import Button from "../../components/Button";
-import Layout from "../../components/Layout";
 import { IFormData } from "../../types";
 import useSWR from 'swr';
 import { fetcher } from '../../api-store';
@@ -18,7 +17,7 @@ const ViewFormPage = ({ form }: FormDataProps) => {
     const { data: submissions, error } = useSWR('/submissions?formId=' + form.id, fetcher);
 
     return (
-        <Layout title="Leadsparkr | Forms">
+        <>
             <div>
                 <Link href="/forms" passHref>
                     <Button><ArrowLeftIcon className="mr-3 flex-shrink-0 h-6 w-6 text-indigo-300" aria-hidden="true"></ArrowLeftIcon> Back To Forms</Button>
@@ -75,7 +74,7 @@ const ViewFormPage = ({ form }: FormDataProps) => {
                     </div>
                 </div>
             </div>
-        </Layout >
+        </>
     );
 };
 

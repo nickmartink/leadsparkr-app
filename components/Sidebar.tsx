@@ -5,9 +5,11 @@ import {
     InboxIcon,
     XIcon,
 } from '@heroicons/react/outline';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { Fragment } from 'react';
 import Logo from './Logo';
+import UserInfo from './UserInfo';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ');
@@ -79,7 +81,7 @@ const Sidebar = ({ sidebarOpen = false, setSidebarOpen }: SidebarProps) => {
                                 </div>
                                 <nav className="mt-5 px-2 space-y-1">
                                     {navigation.map((item) => (
-                                        <a
+                                        <Link
                                             key={item.name}
                                             href={item.href}
                                             className={classNames(
@@ -91,7 +93,7 @@ const Sidebar = ({ sidebarOpen = false, setSidebarOpen }: SidebarProps) => {
                                         >
                                             <item.icon className="mr-4 flex-shrink-0 h-6 w-6 text-indigo-300" aria-hidden="true" />
                                             {item.name}
-                                        </a>
+                                        </Link>
                                     ))}
                                 </nav>
                             </div>
@@ -142,21 +144,7 @@ const Sidebar = ({ sidebarOpen = false, setSidebarOpen }: SidebarProps) => {
                         </nav>
                     </div>
                     <div className="flex-shrink-0 flex border-t border-brand-blue p-4">
-                        <a href="#" className="flex-shrink-0 w-full group block">
-                            <div className="flex items-center">
-                                <div>
-                                    <img
-                                        className="inline-block h-9 w-9 rounded-full"
-                                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                        alt="User avatar"
-                                    />
-                                </div>
-                                <div className="ml-3">
-                                    <p className="text-sm font-medium text-white">First Last</p>
-                                    <p className="text-xs font-medium text-indigo-200 group-hover:text-white">View profile</p>
-                                </div>
-                            </div>
-                        </a>
+                        <UserInfo></UserInfo>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,3 @@
-import Layout from '../../components/Layout';
 import useSWR from 'swr';
 import { fetcher } from '../../api-store';
 import Link from 'next/link';
@@ -13,7 +12,7 @@ const FormsPage = () => {
     if (error) return <div>Sorry, there was an error.</div>;
 
     return (
-        <Layout title="Leadsparkr | Forms">
+        <>
             <div className="flex justify-between">
                 <h1>Forms</h1>
                 <Link href="/forms/create" passHref>
@@ -48,21 +47,21 @@ const FormsPage = () => {
                                                 <td colSpan={5} className="text-center"><p>{isLoading ? 'Loading...' : 'There is nothing to show here...'}</p></td>
                                             </tr>
                                         ) : data.map((form) =>
-                                            (
-                                                <tr key={form.id}>
-                                                    <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                                                        {form.name}
-                                                    </td>
-                                                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                                        {form.emailForwardAddress}</td>
-                                                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{form.endpoint}</td>
-                                                    <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                                        <a href={"/forms/" + form.id} className="view-form text-indigo-600 hover:text-indigo-900">
-                                                            View<span className="sr-only">, {form.name}</span>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            ))
+                                        (
+                                            <tr key={form.id}>
+                                                <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
+                                                    {form.name}
+                                                </td>
+                                                <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                                    {form.emailForwardAddress}</td>
+                                                <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{form.endpoint}</td>
+                                                <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                                    <a href={"/forms/" + form.id} className="view-form text-indigo-600 hover:text-indigo-900">
+                                                        View<span className="sr-only">, {form.name}</span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        ))
                                     }
                                 </tbody>
                             </table>
@@ -70,7 +69,7 @@ const FormsPage = () => {
                     </div>
                 </div >
             </div >
-        </Layout>
+        </>
     );
 };
 

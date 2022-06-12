@@ -9,7 +9,7 @@ type Props = {
   title?: string
 }
 
-const Layout = ({ children, title = 'This is the default title' }: Props) => {
+const Layout = ({ children, title = 'Leadsparkr | Forms and Submissions' }: Props) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const sidebarOpenHandler = (open: boolean) => {
     setSidebarOpen(open);

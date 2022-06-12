@@ -3,30 +3,25 @@ import { GetServerSideProps } from 'next';
 import Link from "next/link";
 import api from "../../api-store";
 import Button from "../../components/Button";
-import Layout from "../../components/Layout";
 import SubmissionData from "../../components/Submissions/SubmissionData";
 import { ISubmissionData } from "../../types";
 
 type SubmissionDataProps = {
     submission: ISubmissionData,
-    formReferer?: string | boolean
+    formReferer?: string
 }
 
 const ViewSubmissionPage = ({ submission, formReferer }: SubmissionDataProps) => {
 
-    console.log(formReferer);
-
-    let data = JSON.parse(submission.data);
-    console.log(data);
     return (
-        <Layout title="Leadsparkr | Submissions">
+        <>
             <div>
                 {!formReferer &&
                     <Link href="/submissions" passHref>
                         <Button><ArrowLeftIcon className="mr-3 flex-shrink-0 h-6 w-6 text-indigo-300" aria-hidden="true"></ArrowLeftIcon> Back To Submissions</Button>
                     </Link>}
                 {formReferer &&
-                    <Link href={formReferer} passHref>
+                    <Link href={`${formReferer}`} passHref>
                         <Button><ArrowLeftIcon className="mr-3 flex-shrink-0 h-6 w-6 text-indigo-300" aria-hidden="true"></ArrowLeftIcon> Back To Form</Button>
                     </Link>}
             </div>
@@ -84,17 +79,17 @@ const ViewSubmissionPage = ({ submission, formReferer }: SubmissionDataProps) =>
                     </div>
                 </div>
             </div>
-        </Layout>
+        </>
     );
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ req, params }) => {
 
-    let formReferer: string | boolean = "";
+    let formReferer: string = "";
 
     if (req.headers.referer) {
         let referer = req.headers.referer.match(/(\/forms\/\d+)/);
-        formReferer = referer && referer.length > 1 ? referer[1] : false;
+        formReferer = referer && referer.length > 1 ? referer[1] : "";
     }
 
     const res = await api(`/submissions/${params.id}`);
