@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 async function main() {
-    const alice = await prisma.user.upsert({
+    await prisma.user.upsert({
         where: { email: 'nick@teansta.com' },
         update: {},
         create: {
@@ -22,30 +22,7 @@ async function main() {
                 ]
             }
         },
-    })
-
-    // const bob = await prisma.user.upsert({
-    //     where: { email: 'bob@prisma.io' },
-    //     update: {},
-    //     create: {
-    //         email: 'bob@prisma.io',
-    //         name: 'Bob',
-    //         posts: {
-    //             create: [
-    //                 {
-    //                     title: 'Follow Prisma on Twitter',
-    //                     content: 'https://twitter.com/prisma',
-    //                     published: true,
-    //                 },
-    //                 {
-    //                     title: 'Follow Nexus on Twitter',
-    //                     content: 'https://twitter.com/nexusgql',
-    //                     published: true,
-    //                 },
-    //             ],
-    //         },
-    //     },
-    // })
+    });
 }
 
 main()
