@@ -8,11 +8,12 @@ export interface IFormData {
 };
 
 export interface ISubmissionData {
-    id?: number,
+    id?: string,
     form: IFormData,
     createdAt: string,
     user_ip?: any,
-    data: string
+    data: string,
+    request: string
 };
 
 export interface IFormResponseData {

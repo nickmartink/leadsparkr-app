@@ -11,7 +11,11 @@
     "prepare": "husky install",
     "pre-commit": "next lint"
   },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+  },
   "dependencies": {
+    "@prisma/client": "^3.15.1",
     "formik": "^2.2.9",
     "next": "latest",
     "react": "^17.0.2",
@@ -24,7 +28,7 @@
     "@headlessui/react": "^1.6.2",
     "@heroicons/react": "^1.0.6",
     "@tailwindcss/forms": "^0.5.2",
-    "@types/node": "^12.12.21",
+    "@types/node": "^12.20.55",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^5.25.0",
@@ -33,9 +37,11 @@
     "eslint-config-next": "12.1.6",
     "husky": "^8.0.1",
     "postcss-preset-env": "^7.6.0",
+    "prisma": "^3.15.1",
     "restapify": "^1.0.0",
     "start-server-and-test": "^1.14.0",
     "tailwindcss": "^3.0.24",
+    "ts-node": "^10.8.1",
     "typescript": "4.0"
   }
 }
